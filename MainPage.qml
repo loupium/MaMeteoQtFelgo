@@ -53,7 +53,7 @@ Page {
                 .get(serverUrl + mainPage.city)
                 .timeout(5000)
                 .then(function(res) {
-                        if(res.status === 200) {
+                    if(res.status === 200) {
                         let len = res.body.list.length;
                         for (var i = 0; i < len; i++){
                             const date = new Date(res.body.list[i].dt *1000);
@@ -70,7 +70,7 @@ Page {
                                                , iconWeather: iconW})
                         }
                         mainPage.navigationStack.push(weatherPage)
-                        }
+                    }
                 })
                 .catch(function(err) {
                     console.log(err.message)
