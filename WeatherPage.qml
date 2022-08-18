@@ -38,7 +38,6 @@ Component {
                             verticalCenter: _icon.verticalCenter
                             left: _icon.right
                             leftMargin: 20
-                            top: undefined
                         }
                         spacing: 10
 
