@@ -33,7 +33,7 @@ Page {
         }
         AppButton {
             id: myButtom
-            property string serverUrl: "https://api.openweathermap.org/data/2.5/forecast?cnt=10&units=metric&appid={mes_ton_token_perso}&q="
+            property string serverUrl: "https://api.openweathermap.org/data/2.5/forecast?cnt=10&units=metric&appid={mets_ton_token_perso}&q="
             text: "Rechercher"
             width: parent.width
             horizontalMargin: 0
