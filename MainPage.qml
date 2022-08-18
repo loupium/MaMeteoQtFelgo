@@ -59,7 +59,6 @@ Page {
                             const date = new Date(res.body.list[i].dt *1000);
                             date.toLocaleDateString("fr-FR");
                             let days = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'];
-                            let src = res.body.list[i].weather
                             let type = res.body.list[i].weather[0].main.toLowerCase()
                             let t = ['clouds','rain'];
                             let iconW = t.indexOf(type)
