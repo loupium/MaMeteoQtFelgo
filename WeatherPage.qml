@@ -23,7 +23,7 @@ Component {
                     height: childrenRect.height
                     Icon {
                         id: _icon
-                        icon: iconWeather === 0 ? IconType.cloud : (iconWeather === 1 ? IconType.clouddownload : IconType.suno);
+                        icon:  [IconType.cloud , IconType.clouddownload , IconType.suno][iconWeather]
                         size : 50
                         anchors {
                             top: _row.top
@@ -67,7 +67,7 @@ Component {
                 }
 
                 states: State {
-                    when: index === myDelegate.ListView.view.currentIndex
+                    when: myDelegate.ListView.isCurrentItem
                     AnchorChanges {
                         target: _date
                         anchors.verticalCenter: undefined
