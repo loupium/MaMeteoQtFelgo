@@ -5,7 +5,6 @@ Component {
     id: weatherPage
     Page {
         title: "Météo/" + mainPage.city
-        property Page target: null
 
         AppListView {
             anchors.fill: parent
