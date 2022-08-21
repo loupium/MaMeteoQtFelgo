@@ -35,7 +35,6 @@ Rectangle {
         Icon {
             id: _icon
             icon:  [IconType.cloud , IconType.clouddownload , IconType.suno][iconWeather]
-            ;
             size : 50
             color: "white"
         }
