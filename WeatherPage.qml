@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.3
 import Felgo 3.0
 
 Component {
@@ -13,32 +13,22 @@ Component {
             delegate: Rectangle {
                 id: myDelegate
                 width: parent.width
-                height: _row.height + 20
+                height: _grid.height + 20
                 color: "#394163"
                 border.color: "#202340"
 
-                Item {
-                    id: _row
-                    x: 20;
+                Grid {
+                    id: _grid
+                    x: 20; y: 10
                     height: childrenRect.height
-                    Icon {
-                        id: _icon
-                        icon:  [IconType.cloud , IconType.clouddownload , IconType.suno][iconWeather]
-                        size : 50
-                        anchors {
-                            top: _row.top
-                            topMargin: 10
-                        }
-                        color: "white"
-                    }
+                    layoutDirection: Qt.RightToLeft
+                    columns: 2
+                    spacing: 20
+                    horizontalItemAlignment : Grid.AlignHCenter
+                    verticalItemAlignment : Grid.AlignVCenter
                     Row {
                         id: _date
                         height: childrenRect.height
-                        anchors {
-                            verticalCenter: _icon.verticalCenter
-                            left: _icon.right
-                            leftMargin: 20
-                        }
                         spacing: 10
 
                         AppText {
@@ -50,6 +40,13 @@ Component {
                             text: date
                             color: "black"
                         }
+                    }
+                    Icon {
+                        id: _icon
+                        icon:  [IconType.cloud , IconType.clouddownload , IconType.suno][iconWeather]
+                        ;
+                        size : 50
+                        color: "white"
                     }
                 }
 
@@ -68,21 +65,13 @@ Component {
 
                 states: State {
                     when: myDelegate.ListView.isCurrentItem
-                    AnchorChanges {
-                        target: _date
-                        anchors.verticalCenter: undefined
-                        anchors.left: _row.left
-                        anchors.top: _row.top
-                    }
                     PropertyChanges {
-                        target: _date
-                        anchors.leftMargin: 0
-                        anchors.topMargin: 10
+                        target: _grid
+                        columns: 1
+                        spacing: 10
                     }
-                    AnchorChanges { target: _icon; anchors.top: _date.bottom }
                     PropertyChanges {
                         target: _icon
-                        anchors.topMargin: 10
                         size: 90
                     }
                     PropertyChanges { target: myDelegate; color: "#e54b65" }
